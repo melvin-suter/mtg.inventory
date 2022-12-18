@@ -1,1 +1,8 @@
 <p>cards works!</p>
+
+<table class="table">
+    <tr *ngFor="let card of cards | async">
+
+        <app-card-row [id]="card.ScryfallID"></app-card-row>
+    </tr>
+</table>
