@@ -19,7 +19,7 @@ spec:
           image: suterdev/mtg.inventory.frontend
           env:
           - name: BACKEND_URL
-            value: https://mtg.kub.suter.dev
+            value: https://mtg.example.com
           ports:
           - name: http
             protocol: TCP

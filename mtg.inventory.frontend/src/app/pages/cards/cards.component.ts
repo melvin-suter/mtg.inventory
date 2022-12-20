@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CardModel } from 'src/app/models/card.model';
+import { FolderModel } from 'src/app/models/folder.model';
+import { CardService } from 'src/app/services/card.service';
+import { CollectionService } from 'src/app/services/collection.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -10,10 +14,14 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class CardsComponent implements OnInit {
 
-  cards:Observable<CardModel[]>;
+  folder?:FolderModel;
+  cards?:CardModel[];
 
-  constructor(private data:DataService) { 
-    this.cards = this.data.getAllCards();
+  constructor(private collectionService: CollectionService, private cardService: CardService, private route: ActivatedRoute) { 
+    this.route.params.subscribe(params => {
+      this.folder = collectionService.getFolder(params['id']);
+      this.cards = cardService.getCards(params['id']);
+    });
   }
 
   ngOnInit(): void {

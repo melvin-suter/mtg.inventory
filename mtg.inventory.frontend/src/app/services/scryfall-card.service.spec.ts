@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ScryfallService } from './scryfall.service';
+import { ScryfallCardService } from './scryfall-card.service';
 
-describe('ScryfallService', () => {
-  let service: ScryfallService;
+describe('ScryfallCardService', () => {
+  let service: ScryfallCardService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ScryfallService);
+    service = TestBed.inject(ScryfallCardService);
   });
 
   it('should be created', () => {

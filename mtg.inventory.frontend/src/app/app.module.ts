@@ -5,22 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CardsComponent } from './pages/cards/cards.component';
-import { CardComponent } from './partial/card/card.component';
 import { HttpClientModule } from  '@angular/common/http';
-import { CardRowComponent } from './partial/card-row/card-row.component';
+import { BareComponent } from './layout/bare/bare.component';
+import { RouterModule } from '@angular/router';
+import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './partial/navbar/navbar.component';
+import { CollectionsComponent } from './pages/collections/collections.component';
+import { FoldersComponent } from './pages/folders/folders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CardsComponent,
-    CardComponent,
-    CardRowComponent
+    BareComponent,
+    AppLayoutComponent,
+    NavbarComponent,
+    CollectionsComponent,
+    FoldersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

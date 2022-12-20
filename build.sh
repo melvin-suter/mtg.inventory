@@ -19,7 +19,7 @@ npm i
 ng build
 
 docker build -t suterdev/mtg.inventory.frontend:1.0.0 .
-docker tag mtg.inventory.frontend:1.0.0 suterdev/mtg.inventory.frontend:latest
+docker tag suterdev/mtg.inventory.frontend:1.0.0 suterdev/mtg.inventory.frontend:latest
 docker push suterdev/mtg.inventory.frontend:1.0.0
 docker push suterdev/mtg.inventory.frontend:latest
 

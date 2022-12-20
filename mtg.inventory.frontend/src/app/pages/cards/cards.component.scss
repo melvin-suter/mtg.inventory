@@ -1,0 +1,7 @@
+table {
+    tr {
+        *:first-child {
+            width: 0px;
+        }
+    }
+}
