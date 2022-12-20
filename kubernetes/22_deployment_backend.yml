@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - imagePullPolicy: Always
+          name: container-0
+          image: suterdev/mtg.inventory.backend
+          env:
+          - name: POSTGRES_HOST
+            value: postgres-service
+          - name: POSTGRES_DB
+            value: mtg
+          - name: POSTGRES_USER
+            value: mtg
+          - name: POSTGRES_PASSWORD
+            value: password
+          ports:
+          - name: http
+            protocol: TCP
+            containerPort: 80
+      restartPolicy: Always
+  replicas: 1

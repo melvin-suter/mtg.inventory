@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "nOhAl9uHvIK84ShbfCjSlKXTopbsesZutzCSvOy/I4c=",
+  "Source": "mtg_inventory_backend",
+  "BasePath": "_content/mtg_inventory_backend",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

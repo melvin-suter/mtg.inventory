@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - imagePullPolicy: Always
+          name: container-0
+          image: suterdev/mtg.inventory.frontend
+          env:
+          - name: BACKEND_URL
+            value: https://mtg.kub.suter.dev
+          ports:
+          - name: http
+            protocol: TCP
+            containerPort: 80
+      restartPolicy: Always
+  replicas: 1
