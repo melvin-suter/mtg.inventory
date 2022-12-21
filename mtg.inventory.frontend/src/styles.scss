@@ -2,6 +2,7 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 
 html,body{
@@ -9,4 +10,10 @@ html,body{
     height: 100%; 
     padding: 0px;
     margin: 0px;
+}
+
+
+.btn-icon {
+    padding-right: 1.73rem;
+    padding-top: 0.5rem;
 }

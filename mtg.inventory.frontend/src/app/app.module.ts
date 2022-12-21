@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './partial/navbar/navbar.component';
 import { CollectionsComponent } from './pages/collections/collections.component';
 import { FoldersComponent } from './pages/folders/folders.component';
+import { ModalComponent } from './partial/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,16 @@ import { FoldersComponent } from './pages/folders/folders.component';
     AppLayoutComponent,
     NavbarComponent,
     CollectionsComponent,
-    FoldersComponent
+    FoldersComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
