@@ -14,7 +14,11 @@ import { NavbarComponent } from './partial/navbar/navbar.component';
 import { CollectionsComponent } from './pages/collections/collections.component';
 import { FoldersComponent } from './pages/folders/folders.component';
 import { ModalComponent } from './partial/modal/modal.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DecksComponent } from './pages/decks/decks.component';
+import { DeckComponent } from './pages/deck/deck.component';
+import { CardListComponent } from './partial/card-list/card-list.component';
+import { ImageViewerComponent } from './partial/image-viewer/image-viewer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     CollectionsComponent,
     FoldersComponent,
-    ModalComponent
+    ModalComponent,
+    DecksComponent,
+    DeckComponent,
+    CardListComponent,
+    ImageViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     RouterModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

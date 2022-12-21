@@ -1,7 +1,7 @@
 <div class="navbar">
     <h1 class="title">MTG</h1>
     <div class="list">
-        <a routerLink="collections" class="nav-item">Collections</a>
-        <a [routerLink]="['collections/', 1]" class="nav-item">Decks</a>
+        <a [routerLink]="['/collections']" [routerLinkActive]="['is-active']" class="nav-item"><span>Collections</span></a>
+        <a routerLink="decks" [routerLinkActive]="['is-active']" class="nav-item"><span>Decks</span></a>
     </div>
 </div>

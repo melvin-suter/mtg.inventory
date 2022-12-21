@@ -12,9 +12,11 @@
     .title {
         color: #fff;
         padding:1rem;
+        padding-top: 1.5rem;
         background-color: #444;
         width: 100%;
         text-align: center;
+        margin-bottom: 0px;
     }
 
     .list {
@@ -26,14 +28,21 @@
         .nav-item {
             width: 100%;
             padding: 0.5rem 1rem;
-
             color: #fff;
             text-decoration: none;
 
+
+            &.is-active {
+                background: #444;
+            }
+
             &:hover,
-            &:active,
-            &:focus {
-                background-color: #444;
+            &:active {
+                span {
+                    border-bottom: 1px solid #777;
+                    padding: 0rem 0.2rem;
+                }
+                
             }
         }
     }

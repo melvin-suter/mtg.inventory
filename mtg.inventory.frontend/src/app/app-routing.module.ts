@@ -4,15 +4,19 @@ import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { BareComponent } from './layout/bare/bare.component';
 import { CardsComponent } from './pages/cards/cards.component';
 import { CollectionsComponent } from './pages/collections/collections.component';
+import { DeckComponent } from './pages/deck/deck.component';
+import { DecksComponent } from './pages/decks/decks.component';
 import { FoldersComponent } from './pages/folders/folders.component';
 
 const routes: Routes = [
   { path: '', component: AppLayoutComponent, children: [
     {path: 'cards', component: CardsComponent},
-    {path: 'folders/:id', component: CardsComponent},
     {path: 'collections/:id', component: FoldersComponent},
+    {path: 'collections/:colid/:id', component: CardsComponent},
     {path: 'collections', component: CollectionsComponent},
-    {path: '', component: CardsComponent}
+    {path: 'decks/:id', component: DeckComponent},
+    {path: 'decks', component: DecksComponent},
+    {path: '', component: CollectionsComponent}
   ]},
   { path: '', component: BareComponent, children: [
     {path: 'login', component: CardsComponent},

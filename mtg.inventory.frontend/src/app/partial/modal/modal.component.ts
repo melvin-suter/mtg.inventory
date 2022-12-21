@@ -31,4 +31,9 @@ export class ModalComponent implements OnInit {
     this.modalClosedEmitter.emit(value);
   }
 
+  stopPropagation(event: any){
+    event.stopPropagation();
+
+  }
+
 }

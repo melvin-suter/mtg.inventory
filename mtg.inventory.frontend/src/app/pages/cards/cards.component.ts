@@ -6,7 +6,6 @@ import { FolderModel } from 'src/app/models/folder.model';
 import { ScryfallCardModel } from 'src/app/models/scryfall-card.model';
 import { CardService } from 'src/app/services/card.service';
 import { CollectionService } from 'src/app/services/collection.service';
-import { DataService } from 'src/app/services/data.service';
 import { ScryfallService } from 'src/app/services/scryfall.service';
 
 @Component({

@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let fol of folders" [routerLink]="['/folders', fol.id]">
+        <tr *ngFor="let fol of folders" [routerLink]="[fol.id]">
             <td>{{ fol.name }}</td>
             <td>{{ fol.description }}</td>
             <td>{{ fol.cardCount }}</td>
