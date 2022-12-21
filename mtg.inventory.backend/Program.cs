@@ -1,17 +1,17 @@
 using Microsoft.EntityFrameworkCore;
+using mtg_inventory_backend;
 using mtg_inventory_backend.Models;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddTransient<IScryfallService, ScryfallService>();
 
 // Database
-builder.Services.AddDbContext<DefaultDBContext>(opt => 
-    opt.UseNpgsql("Host=localhost;Database=mtg;Username=mtg;Password=password")
-);
+builder.Services.AddDbContext<DefaultDBContext>(opt => opt.UseNpgsql("Host=localhost;Database=mtg;Username=mtg;Password=password"));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,8 +24,6 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = false;
     options.Cookie.IsEssential = true;
 });
-
-
 
 var app = builder.Build();
 

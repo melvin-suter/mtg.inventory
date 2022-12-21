@@ -37,7 +37,7 @@ namespace mtginventorybackend.Migrations
 
             migrationBuilder.InsertData(
                 table: "Card",
-                columns: new[] { "id", "folderId", "name", "quantity", "scryfallCardId", "scryfallID" },
+                columns: new[] { "id", "folderId", "name", "quantity", "MetadataCardId", "MetadataID" },
                 values: new object[] { 1, 1, "Backup Agent", 2, null, "2a46af75-3880-4141-b26e-19834d67e7a8" });
         }
 

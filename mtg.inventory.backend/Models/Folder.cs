@@ -5,13 +5,15 @@ namespace mtg_inventory_backend.Models;
 
 public class Folder
 {
-    public int id { get; set; }
+    public int Id { get; set; }
+
     [Required]
-    public string name { get; set; }
-    public string? description { get; set; }
+    public string Name { get; set; } = null!;
+
+    public string? Description { get; set; }
 
     [ForeignKey("Collection")]
-    public int collectionId {get;set;}
+    public int CollectionId { get; set; }
 
-    public List<Card> cards {get;set;}
+    public virtual ICollection<FolderCard> Cards { get; set; } = null!;
 }

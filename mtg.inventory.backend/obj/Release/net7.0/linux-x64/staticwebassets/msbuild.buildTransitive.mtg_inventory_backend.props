@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/mtg_inventory_backend.props" />
-</Project>

@@ -1,15 +1,12 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
 namespace mtg_inventory_backend.Models;
 
 public class Collection
 {
-    public int id { get; set; }
-    public string name { get; set; }
-    public string? description { get; set; }
+    public int Id { get; set; }
 
-    public List<Folder> folders {get;set;}
+    public string Name { get; set; } = null!;
 
+    public string? Description { get; set; }
+
+    public virtual ICollection<Folder> Folders { get; set; } = null!;
 }

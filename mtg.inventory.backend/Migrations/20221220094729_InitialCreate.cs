@@ -41,7 +41,7 @@ namespace mtginventorybackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ScryfallCard",
+                name: "MetadataCard",
                 columns: table => new
                 {
                     id = table.Column<string>(type: "text", nullable: false),
@@ -62,7 +62,7 @@ namespace mtginventorybackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ScryfallCard", x => x.id);
+                    table.PrimaryKey("PK_MetadataCard", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -93,8 +93,8 @@ namespace mtginventorybackend.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
-                    scryfallID = table.Column<string>(type: "text", nullable: false),
-                    scryfallCardId = table.Column<string>(type: "text", nullable: true),
+                    MetadataID = table.Column<string>(type: "text", nullable: false),
+                    MetadataCardId = table.Column<string>(type: "text", nullable: true),
                     quantity = table.Column<int>(type: "integer", nullable: false),
                     folderId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -156,7 +156,7 @@ namespace mtginventorybackend.Migrations
                 name: "CardDeck");
 
             migrationBuilder.DropTable(
-                name: "ScryfallCard");
+                name: "MetadataCard");
 
             migrationBuilder.DropTable(
                 name: "Card");

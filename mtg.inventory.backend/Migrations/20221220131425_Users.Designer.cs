@@ -59,10 +59,10 @@ namespace mtginventorybackend.Migrations
                     b.Property<int>("quantity")
                         .HasColumnType("integer");
 
-                    b.Property<string>("scryfallCardId")
+                    b.Property<string>("MetadataCardId")
                         .HasColumnType("text");
 
-                    b.Property<string>("scryfallID")
+                    b.Property<string>("MetadataID")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -79,7 +79,7 @@ namespace mtginventorybackend.Migrations
                             folderId = 1,
                             name = "Backup Agent",
                             quantity = 2,
-                            scryfallID = "2a46af75-3880-4141-b26e-19834d67e7a8"
+                            MetadataID = "2a46af75-3880-4141-b26e-19834d67e7a8"
                         });
                 });
 
@@ -165,7 +165,7 @@ namespace mtginventorybackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("mtg_inventory_backend.Models.ScryfallCard", b =>
+            modelBuilder.Entity("mtg_inventory_backend.Models.MetadataCard", b =>
                 {
                     b.Property<string>("id")
                         .HasColumnType("text");
@@ -217,7 +217,7 @@ namespace mtginventorybackend.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("ScryfallCard");
+                    b.ToTable("MetadataCard");
                 });
 
             modelBuilder.Entity("mtg_inventory_backend.Models.User", b =>

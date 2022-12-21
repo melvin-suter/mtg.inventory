@@ -59,10 +59,10 @@ namespace mtginventorybackend.Migrations
                     b.Property<int>("quantity")
                         .HasColumnType("integer");
 
-                    b.Property<string>("scryfallCardId")
+                    b.Property<string>("MetadataCardId")
                         .HasColumnType("text");
 
-                    b.Property<string>("scryfallID")
+                    b.Property<string>("MetadataID")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -138,7 +138,7 @@ namespace mtginventorybackend.Migrations
                     b.ToTable("Folder");
                 });
 
-            modelBuilder.Entity("mtg_inventory_backend.Models.ScryfallCard", b =>
+            modelBuilder.Entity("mtg_inventory_backend.Models.MetadataCard", b =>
                 {
                     b.Property<string>("id")
                         .HasColumnType("text");
@@ -190,7 +190,7 @@ namespace mtginventorybackend.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("ScryfallCard");
+                    b.ToTable("MetadataCard");
                 });
 
             modelBuilder.Entity("CardDeck", b =>

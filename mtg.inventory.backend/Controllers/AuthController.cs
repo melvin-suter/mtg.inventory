@@ -23,24 +23,36 @@ namespace mtg_inventory_backend.Controllers
         }
 
         [HttpGet("check-login")]
-        public async Task<ActionResult> checkLogin(){
-            return StatusCode(200,new {status = checkAuth(HttpContext)});
+        public ActionResult CheckLogin()
+        {
+            return Ok(new
+            {
+                Status = CheckAuth(HttpContext)
+            });
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult> doLogin(AuthRequest authRequest){
-
-            if (_context.User == null)
-            {
-                return NotFound();
-            }
-            var user = _context.User.AsEnumerable<User>().Where((User user, int bol) => user.email.ToLower() == authRequest.username.ToLower()).First();
+        public async Task<ActionResult> DoLogin(AuthRequest authRequest)
+        {
+            var user = await _context.User.FirstOrDefaultAsync(user => string.Equals(user.Email, authRequest.Username, StringComparison.OrdinalIgnoreCase));
             
-            if (user == null){
-                if(user.checkPassword(authRequest.password)){
+            if (user is null)
+            {
+                return NotFound(new
+                {
+                    Status = false,
+                    Error = "user-not-found"
+                });
+            }
+                if (user.CheckPassword(authRequest.Password))
+                {
+
+                    //Yes let's reinvent the wheel... (btw storing token in session is storing it server side instead of client side, which would be common practice)
+                    //ToDo actual JWT implementation
+
                     // Generate Random Token
-                    StringBuilder str_build = new StringBuilder();  
-                    Random random = new Random();  
+                    var sb = new StringBuilder();  
+                    var random = new Random();  
 
                     char letter;  
 
@@ -49,24 +61,32 @@ namespace mtg_inventory_backend.Controllers
                         double flt = random.NextDouble();
                         int shift = Convert.ToInt32(Math.Floor(25 * flt));
                         letter = Convert.ToChar(shift + 65);
-                        str_build.Append(letter);  
+                        sb.Append(letter);  
                     } 
                     
-                    HttpContext.Session.SetString("auth-token", str_build.ToString());
-                    return StatusCode(200,new {status = true, token = str_build.ToString()});
+                    HttpContext.Session.SetString("auth-token", sb.ToString());
+
+                    return Ok(new
+                    {
+                        Status = true,
+                        Token = sb.ToString(),
+                    });
                 }
-            }                
             
-            return StatusCode(200,new {status = false, error = "auth-failed"});
+            return Unauthorized(new 
+            {
+                Status = false, 
+                Error = "auth-failed"
+            });
         }
 
-        public static bool checkAuth(HttpContext _context){
-            _context.Request.Headers.TryGetValue("Authentication",out StringValues headerTokenOut);
-            var headerToken = headerTokenOut.First();
-            string sessionToken = _context.Session.GetString("auth-token");
-            if(headerToken ==  null|| headerToken.Length <= 0 || sessionToken == null || sessionToken.Length <= 0) { return false;}
+        public static bool CheckAuth(HttpContext context)
+        {
+            context.Request.Headers.TryGetValue("Authentication", out var headerTokenOut);
 
-            return sessionToken.ToLower() == headerToken.ToLower();
+            var headerToken = headerTokenOut[0];
+            var sessionToken = context.Session.GetString("auth-token");
+            return string.Equals(sessionToken, headerToken, StringComparison.OrdinalIgnoreCase);
         }
 
     }
